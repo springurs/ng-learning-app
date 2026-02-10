@@ -1,0 +1,10 @@
+<div class="user-card">
+  <h3>{{ user.name }}</h3>
+  <p>Email: {{ user.email }}</p>
+  <p>Role: {{ user.role }}</p>
+  <div class="actions">
+    <button (click)="onEdit()">Edit</button>
+    <button (click)="onToggleRole()">Toggle Role</button>
+    <button (click)="onDelete()" class="delete">Delete</button>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="header-subheading">
+  PRODUCTS
+  <ul>
+  <li *ngFor="let product of products">
+   {{product.name}} | {{product.price}} | {{currentPage}}
+  </li>
+</ul>
+
+  <button
+  (click)="handlePrevClick()"
+  [disabled]="currentPage === 1"
+  class="header-subheading__btn">
+    << PREV
+  </button>
+
+
+  <button
+  (click)="handleNextClick()"
+  [disabled]="totalRecords === currentPage"
+  class="header-subheading__btn"
+  >
+    NEXT>>
+  </button>
+</div>

@@ -1,0 +1,14 @@
+<h2>Inputs & Outputs Demo</h2>
+<p>This demo shows component communication using @Input and @Output decorators.</p>
+
+<app-user-item
+  *ngFor="let user of users"
+  [user]="user"
+  (deleteUser)="onDeleteUser($event)"
+  (editUser)="onEditUser($event)"
+  (toggleRole)="onToggleRole($event)">
+</app-user-item>
+
+<div *ngIf="users.length === 0">
+  <p>No users to display.</p>
+</div>

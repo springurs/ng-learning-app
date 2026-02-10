@@ -1,0 +1,28 @@
+<h2>Data Binding & Directives Demo</h2>
+
+<button (click)="toggleStockFilter()">
+  {{ showOnlyInStock ? 'Show All Products' : 'Show Only In Stock' }}
+</button>
+
+<div *ngIf="filteredProducts.length === 0; else productsList">
+  <p>No products to display.</p>
+</div>
+
+<ng-template #productsList>
+  <div class="products-grid">
+    <div
+      *ngFor="let product of filteredProducts"
+      class="product-card"
+      [class.expensive]="product.price > 100"
+    >
+      <h3>{{ product.name }}</h3>
+      <p>Price: ${{ product.price | number:'1.2-2' }}</p>
+      <p [ngClass]="{'in-stock': product.inStock, 'out-stock': !product.inStock}">
+        Status: {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+      </p>
+      <button (click)="updateStock(product)">
+        Mark as {{ product.inStock ? 'Out of Stock' : 'In Stock' }}
+      </button>
+    </div>
+  </div>
+</ng-template>

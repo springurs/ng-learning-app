@@ -1,0 +1,16 @@
+<h2>HTTP Client & Observables Demo</h2>
+<p>This demo shows how to fetch data from an API using HttpClient and RxJS Observables.</p>
+
+<button (click)="fetchTodos()" [disabled]="loading" class="fetch-btn">Fetch Todos</button>
+
+<div *ngIf="loading" class="loading">Loading...</div>
+
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+<div *ngIf="todos$ | async as todos" class="todos-list">
+  <h3>Todos from API:</h3>
+  <div *ngFor="let todo of todos" class="todo-item">
+    <span [class.completed]="todo.completed">{{ todo.title }}</span>
+    <span class="completed-status">(Completed: {{ todo.completed }})</span>
+  </div>
+</div>

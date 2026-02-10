@@ -1,0 +1,29 @@
+<h2>Angular Signals Demo</h2>
+<p>This demo shows Angular 16's new Signals API for reactive state management.</p>
+
+<div class="signal-demo">
+  <div class="counter-section">
+    <h3>Counter: {{ counter() }}</h3>
+    <div class="buttons">
+      <button (click)="increment()">+</button>
+      <button (click)="decrement()">-</button>
+      <button (click)="reset()">Reset</button>
+    </div>
+  </div>
+
+  <div class="multiplier-section">
+    <h3>Multiplier: {{ multiplier() }}</h3>
+    <div class="multiplier-buttons">
+      <button (click)="changeMultiplier(1)">x1</button>
+      <button (click)="changeMultiplier(2)">x2</button>
+      <button (click)="changeMultiplier(5)">x5</button>
+      <button (click)="changeMultiplier(10)">x10</button>
+    </div>
+  </div>
+
+  <div class="result-section">
+    <h3>Computed Result: {{ result() }}</h3>
+    <p>Counter x Multiplier = Result</p>
+    <p>Effect logs changes in the console!</p>
+  </div>
+</div>
